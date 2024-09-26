@@ -1,10 +1,13 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 import csv
 from time import sleep
 
 
-driver = webdriver.Chrome(r'C:\chromedriver.exe')
-driver.get('https://amazon.com')
+chrome_driver_path = "/Users/olakoya/Bin/chromedriver"
+service = Service(chrome_driver_path)
+driver = webdriver.Chrome(service=service)
+driver.get('https://www.amazon.com')
 
 
 with open('amazon_cookies.csv', 'r') as file:
